@@ -28,7 +28,8 @@ router.post("/", async (req, res) => {
 
 router.patch("/:id", async (req, res) => {
   const id = req.params.id;
-  const result = await toggleDelete(id);
+  const completed = req.body.completed; // { completed: true }
+  const result = await toggleDelete(id, completed);
   res.status(200).json({ success: true, payload: result });
 });
 

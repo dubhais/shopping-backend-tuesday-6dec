@@ -24,11 +24,11 @@ export async function postListItem(listItem) {
   return data.rows[0];
 }
 
-export async function toggleDelete(id) {
+export async function toggleDelete(id, completed) {
   // UPDATE shopping SET completed = NOT completed WHERE id = ${id} Returning *;
   const data = await pool.query(
-    "UPDATE shopping SET completed = NOT completed WHERE id = $1 Returning *;",
-    [id]
+    "UPDATE shopping SET completed = $1 WHERE id = $2 Returning *;",
+    [completed, id]
   );
   return data.rows[0];
 }
