@@ -6,7 +6,8 @@
     "start": "node ./bin/www.js",
     "dev": "nodemon -r dotenv/config ./bin/www.js",
     "createTable": "node -r dotenv/config ./db/scripts/createTable.js",
-    "deleteTable": "node -r dotenv/config ./db/scripts/deleteTable.js"
+    "deleteTable": "node -r dotenv/config ./db/scripts/deleteTable.js",
+    "populateTable": "node -r dotenv/config ./db/scripts/populateTable.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
