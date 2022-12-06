@@ -26,6 +26,13 @@ router.post("/", async (req, res) => {
   res.status(201).json({ success: true, payload: result });
 });
 
+/*
+{
+    "listItem" : {"item" : "coca-cola",
+    "completed": "false"}
+}
+*/
+
 router.patch("/:id", async (req, res) => {
   const id = req.params.id;
   const { completed } = req.body; // { completed: true }

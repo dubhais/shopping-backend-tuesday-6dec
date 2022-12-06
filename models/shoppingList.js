@@ -27,7 +27,7 @@ export async function postListItem(listItem) {
 export async function toggleDelete(id, completed) {
   // UPDATE shopping SET completed = NOT completed WHERE id = ${id} Returning *;
   const data = await pool.query(
-    "UPDATE shopping SET completed = ${completed} WHERE id = ${id} Returning *;"
+    `UPDATE shopping SET completed = ${completed} WHERE id = ${id} Returning *;`
     //[completed, id]
   );
   return data.rows[0];
