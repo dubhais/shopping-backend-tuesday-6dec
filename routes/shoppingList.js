@@ -6,7 +6,13 @@ const router = express.Router();
 /* GET shopping list. */
 router.get("/", async (req, res) => {
   const data = await getShoppingList();
-  res.json({ success: true, payload: data });
+  res.status(200).json({ success: true, payload: data });
+});
+
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const data = await getShoppingItem(id);
+  res.status(200).json({ success: true, payload: data });
 });
 
 router.post("/", async (req, res) => {
