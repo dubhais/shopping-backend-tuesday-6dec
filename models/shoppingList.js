@@ -23,3 +23,12 @@ export async function postListItem(listItem) {
   );
   return data.rows[0];
 }
+
+export async function toggleDelete(id) {
+  // UPDATE shopping SET completed = NOT completed WHERE id = ${id} Returning *;
+  const data = await pool.query(
+    "UPDATE shopping SET completed = NOT completed WHERE id = $1 Returning *;",
+    [id]
+  );
+  return data.rows[0];
+}

@@ -3,6 +3,7 @@ import {
   getShoppingList,
   getShoppingItem,
   postListItem,
+  toggleDelete,
 } from "../models/shoppingList.js";
 
 const router = express.Router();
@@ -23,6 +24,12 @@ router.post("/", async (req, res) => {
   const { listItem } = req.body;
   const result = await postListItem(listItem);
   res.status(201).json({ success: true, payload: result });
+});
+
+router.patch("/:id", async (req, res) => {
+  const id = req.params.id;
+  const result = await toggleDelete(id);
+  res.status(200).json({ success: true, payload: result });
 });
 
 export default router;
